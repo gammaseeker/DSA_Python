@@ -21,18 +21,39 @@ class LinkedList:
 
     def add(self, node):
         self.tail.next = node    
+        self.set_tail(node)
 
     def insert(self, node, index):
         i = 0
-        current = self.head
-        while(i != index):
-            i += 1
-            current = current.next
-        current.next = node
+        prev = self.head
+        current = self.head.next
+        if index == 0:
+            node.next = self.head
+            self.head = node
+        else:
+            while(i != index):
+                i += 1
+                prev = current
+                current = current.next
+        prev.next = node
+        node.next = current
             
     def delete(self, value):
         pass
 
     def contains(self, value):
         pass
+    
+    def print_list(self):
+        current = self.head
+        while(current is not None):
+            print(current)
+            current = current.next
 
+node1 = Node(1)
+node2 = Node(2)
+linkedList = LinkedList()
+linkedList.set_head(node1)
+linkedList.set_tail(node1)
+linkedList.add(node2)
+linkedList.print_list()
