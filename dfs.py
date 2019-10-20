@@ -57,4 +57,5 @@ rec_matrix = [
 ]
 
 dfs(simple_matrix)
+print("---------------------------")
 dfs_recursive(rec_matrix, 0, 0)
